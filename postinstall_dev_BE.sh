@@ -50,7 +50,7 @@ echo "Please use nvm to change to the node version of choice."
 # Download and install brave
 echo "Adding Brave Browser PPA"
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update
 echo "Installing Brave Browser"
 sudo apt install brave-browser -y
@@ -81,11 +81,6 @@ code --install-extension ms-vscode-remote.remote-containers # docker containers
 code --install-extension dbaeumer.vscode-eslint # eslint
 
 
-# Install Postman
-echo "Installing Postman"
-sudo snap install postman
-
-
 # Install Docker
 echo "Starting Docker installation"
 echo "Adding Docker PPA"
@@ -103,7 +98,7 @@ echo \
 echo "Updating apt"
 sudo apt update
 echo "Installing Docker"
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin -y
 
 echo "Docker postinstall steps"
 sudo groupadd docker
